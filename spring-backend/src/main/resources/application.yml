@@ -1,1 +1,16 @@
-
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.56.20:5432/pgdev
+    username: pgdev
+    password: pgdev
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        show_sql: false
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  liquibase:
+    change-log: classpath:db/master-change-log.xml
+    enabled: true

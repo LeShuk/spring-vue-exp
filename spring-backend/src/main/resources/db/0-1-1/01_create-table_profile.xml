@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0-1-1_create_table_profile" author="LeShuk">
+        <preConditions>
+            <not>
+                <tableExists tableName="PROFILE"/>
+            </not>
+        </preConditions>
+        <createTable tableName="PROFILE">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="P_NAME" type="varchar2(128)">
+                <constraints nullable="false" />
+            </column>
+            <column name="P_SURNAME" type="varchar2(128)">
+                <constraints nullable="false" />
+            </column>
+            <column name="P_ALIAS" type="varchar2(128)">
+                <constraints nullable="false" />
+            </column>
+            <column name="P_EMAIL" type="varchar2(128)">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="P_PASSWORD" type="varchar2">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

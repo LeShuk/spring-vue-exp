@@ -35,7 +35,7 @@ import Modal from "@/components/UI/Modal";
 import {apiPath} from "@/main";
 
 export default {
-  name: "Profile",
+  name: "OldProfilePage",
   components: {Modal, ProfileForm, ProfileList},
   data() {
     return {

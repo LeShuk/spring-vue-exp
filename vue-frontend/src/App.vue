@@ -25,11 +25,8 @@ export default {
   padding: 20px;
 }
 
-input {
-  width: 100%;
-  padding: 10px 15px;
-  margin-top: 15px;
-  border: 1px solid teal;
+.d-flex {
+  display: flex;
 }
 
 button {

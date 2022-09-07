@@ -4,8 +4,10 @@
   <div @click="$router.push('/')" style="padding-right: 15px">
     Spring&Vue
   </div>
-  <div>
+  <div class="light">
     <button @click="$router.push('/profiles')" >Профили</button>
+    <button @click="$router.push('/profile')">Профиль</button>
+    <button @click="$router.push('/registration')">Регистрация</button>
   </div>
 </div>
 </template>
@@ -24,5 +26,9 @@ export default {
   display: flex;
   align-items:center;
   padding: 0 15px;
+}
+.light button {
+  background: lightgray;
+  margin: 0 5px;
 }
 </style>

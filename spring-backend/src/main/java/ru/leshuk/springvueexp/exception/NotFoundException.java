@@ -1,4 +1,4 @@
-package ru.leshuk.springvueexp.exeption;
+package ru.leshuk.springvueexp.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

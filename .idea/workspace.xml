@@ -4,44 +4,79 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc874ed6-d853-4807-b044-8d3f421be879" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-backend/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/SpringVueExpApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spring-backend/src/test/java/ru/leshuk/springvueexp/SpringVueExpApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/jsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/assets/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/components/HelloWorld.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/views/AboutView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/src/views/HomeView.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-frontend/vue.config.js" afterDir="false" />
+    <list default="true" id="cc874ed6-d853-4807-b044-8d3f421be879" name="Changes" comment="feature/ProfileFunctionality&#10;Для дальнейшей доработки фронта необходимо организовать функционал авторизации">
+      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/model/AccountCredentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/service/AuthEntryPoint.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/service/AuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-frontend/src/pages/LoginPage.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-frontend/src/utils/Validators.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-frontend/src/utils/apiClient.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue-frontend/src/utils/secureState.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/spring-backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/controller/HelloWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/controller/HelloWorld.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/controller/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/controller/ProfileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/exeption/NotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/exception/NotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/repo/ProfileRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/repo/ProfileRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-frontend/src/Pages/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-frontend/src/pages/HomePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-frontend/src/Pages/ProfilePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-frontend/src/pages/ProfilePage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-frontend/src/components/NavBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-frontend/src/components/NavBar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-frontend/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-frontend/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue-frontend/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-frontend/src/router/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/exp002-updateProfileFunctionality" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -52,22 +87,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "18",
-    "last_opened_file_path": "/home/leshuk/java.code/spring-vue-exp",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../react-jwt-auth" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/spring-backend" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vue-frontend/src/utils" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.leshuk.springvueexp.security" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -93,6 +136,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660146016216</updated>
       <workItem from="1660146018153" duration="5271000" />
+      <workItem from="1662709117427" duration="19700000" />
     </task>
     <servers />
   </component>
@@ -109,5 +153,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>file://$PROJECT_DIR$/spring-backend/src/main/java/ru/leshuk/springvueexp/security/controller/AuthController.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

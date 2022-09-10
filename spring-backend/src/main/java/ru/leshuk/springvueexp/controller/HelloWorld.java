@@ -21,4 +21,8 @@ public class HelloWorld {
                         .collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
                         .toString();
     }
+    @GetMapping("/user")
+    public String getAuthString(){
+        return "Привет! Круто, что представился!";
+    }
 }

@@ -8,13 +8,22 @@
     <button @click="$router.push('/profiles')" >Профили</button>
     <button @click="$router.push('/profile')">Профиль</button>
     <button @click="$router.push('/registration')">Регистрация</button>
+    <button v-if="!secureState.isAuth" @click="$router.push('/login')">Войти</button>
+    <button v-if="secureState.isAuth" @click="() => {secureState.logout(); $router.push('/login')}">Выйти</button>
   </div>
 </div>
 </template>
 
 <script>
+import {secureState} from "@/utils/secureState";
+
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  data() {
+    return {
+      secureState,
+    }
+  }
 }
 </script>
 

@@ -2,7 +2,7 @@ package ru.leshuk.springvueexp.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import ru.leshuk.springvueexp.exeption.NotFoundException;
+import ru.leshuk.springvueexp.exception.NotFoundException;
 import ru.leshuk.springvueexp.model.Profile;
 import ru.leshuk.springvueexp.repo.ProfileRepo;
 

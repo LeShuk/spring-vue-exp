@@ -29,10 +29,9 @@
 
 <script>
 import ProfileList from "@/components/ProfileList";
-import axios from "axios";
 import ProfileForm from "@/components/ProfileForm";
 import Modal from "@/components/UI/Modal";
-import {apiPath} from "@/main";
+import {apiClient, apiUrls} from "@/utils/apiClient";
 
 export default {
   name: "Profile",
@@ -44,25 +43,33 @@ export default {
     }
   },
   methods: {
-    async fetchProfiles() {
-      try {
-        const response = await axios.get(apiPath()+ 'profiles', {
-          params: {}
-        });
-        this.profiles = response.data;
-      } catch (e) {
-        alert('Списка нет. Бекенд не работает. Ну, или кто-то накосячил в коде...')
-      }
+    fetchProfiles() {
+      apiClient
+          .get(apiUrls['profiles'])
+          .then((response) => {
+            this.profiles = response.data
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      // try {
+      //   const response = await axios.get(apiPath()+ 'profiles', {
+      //     params: {}
+      //   });
+      //   this.profiles = response.data;
+      // } catch (e) {
+      //   alert('Списка нет. Бекенд не работает. Ну, или кто-то накосячил в коде...')
+      // }
     },
     async addProfile(profile) {
       console.log(profile);
-      try {
-        const response = await axios.post(apiPath() + 'profiles', profile);
-        await this.fetchProfiles();
-        this.$refs.modal.hideModal();
-      } catch (e) {
-        alert('Добавление не удалось')
-      }
+      // try {
+      //   const response = await axios.post(apiPath() + 'profiles', profile);
+      //   await this.fetchProfiles();
+      //   this.$refs.modal.hideModal();
+      // } catch (e) {
+      //   alert('Добавление не удалось')
+      // }
     }
   },
   mounted() {

@@ -1,83 +1,72 @@
 <template>
   <div>
-    <h1>Список профилей</h1>
-    <button @click="() => {this.dialogVisible = true}">
-      Новый профиль...
-    </button>
-    <profile-list
-        :profiles="profiles"
-    />
-    <modal
-        v-model:show="dialogVisible"
-        :backdrop="false"
-        ref="modal"
-    >
-      <template #modal-header>
-        Заголовок окна
-      </template>
-      <profile-form
-          ref="form"
-          @create="addProfile"
-      />
-      <template #modal-footer>
-        <button @click="this.$refs.form.createProfile()">Добавить профиль</button>
-        <button @click="this.$refs.modal.hideModal()">Закрыть</button>
-      </template>
-    </modal>
+    <!--    todo: inline-стили - зло!-->
+    <div style="justify-content: space-between" class="d-flex">
+      <div>
+        <Avatar alternative-text="LS"/>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <button @click="editProfile">{{ isEdit ? 'Сохранить изменения' : 'Изменить профиль' }}</button>
+        <button v-if="!isEdit" @click="changePassword">Сменить пароль</button>
+        <button v-if="isEdit" @click="cancel">Отмена</button>
+      </div>
+    </div>
+    <Profile :profile="profile" :is-edit="isEdit"/>
+
   </div>
 </template>
 
 <script>
-import ProfileList from "@/components/ProfileList";
-import ProfileForm from "@/components/ProfileForm";
-import Modal from "@/components/UI/Modal";
-import {apiClient, apiUrls} from "@/utils/apiClient";
+import Profile from "@/components/Profile";
+import Avatar from "@/components/Avatar";
 
 export default {
-  name: "Profile",
-  components: {Modal, ProfileForm, ProfileList},
+  name: "ProfilePage",
+  components: {Avatar, Profile},
   data() {
     return {
-      profiles: [],
-      dialogVisible: false,
+      profile: {
+        id: 0,
+        name: "Алексей",
+        surname: "Костырев",
+        alias: "LeShuk",
+        email: "ak@leshuk.pro",
+        password: "123321",
+      },
+      old_profile: {
+        name: '',
+        surname: '',
+        alias: '',
+      },
+      isEdit: false,
     }
   },
   methods: {
-    fetchProfiles() {
-      apiClient
-          .get(apiUrls['profiles'])
-          .then((response) => {
-            this.profiles = response.data
-          })
-          .catch((error) => {
-            console.log(error)
-          })
-      // try {
-      //   const response = await axios.get(apiPath()+ 'profiles', {
-      //     params: {}
-      //   });
-      //   this.profiles = response.data;
-      // } catch (e) {
-      //   alert('Списка нет. Бекенд не работает. Ну, или кто-то накосячил в коде...')
-      // }
+    editProfile() {
+      if (this.isEdit) {
+        alert("Функционал пока не предусмотрен, но вы держитесь...")
+      } else {
+        this.old_profile.name = this.profile.name;
+        this.old_profile.surname = this.profile.surname;
+        this.old_profile.alias = this.profile.alias;
+        this.isEdit = true;
+      }
     },
-    async addProfile(profile) {
-      console.log(profile);
-      // try {
-      //   const response = await axios.post(apiPath() + 'profiles', profile);
-      //   await this.fetchProfiles();
-      //   this.$refs.modal.hideModal();
-      // } catch (e) {
-      //   alert('Добавление не удалось')
-      // }
+    changePassword() {
+      alert("Функционал пока не предусмотрен, но вы держитесь...")
+    },
+    cancel() {
+      this.profile.name = this.old_profile.name;
+      this.profile.surname = this.old_profile.surname;
+      this.profile.alias = this.old_profile.alias;
+      this.isEdit = false;
     }
-  },
-  mounted() {
-    this.fetchProfiles();
   }
 }
 </script>
 
 <style scoped>
-
+button {
+  margin-bottom: 5px;
+}
 </style>

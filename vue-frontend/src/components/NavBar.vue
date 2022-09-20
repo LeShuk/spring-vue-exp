@@ -4,22 +4,29 @@
   <div @click="$router.push('/')" style="padding-right: 15px">
     Spring&Vue
   </div>
-  <div>
-    <button @click="$router.push('/profiles')" >Профили</button>
-    <button v-if="!secureState.isAuth" @click="$router.push('/login')">Войти</button>
-    <button v-if="secureState.isAuth" @click="() => {secureState.logout(); $router.push('/login')}">Выйти</button>
+  <div class="light">
+    <button v-if="isAuth" @click="$router.push('/profile')">Профиль</button>
+    <button v-if="!isAuth" @click="$router.push('/registration')">Регистрация</button>
+    <button v-if="!isAuth" @click="$router.push('/login')">Вход</button>
+    <button v-if="isAuth" @click="logout">Попрощаться</button>
+
   </div>
 </div>
 </template>
 
 <script>
-import {secureState} from "@/utils/secureState";
 
 export default {
   name: "NavBar",
-  data() {
-    return {
-      secureState,
+  computed: {
+    isAuth() {
+      return this.$store.getters['secureState/isAuth'];
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('secureState/logout')
+        .then(() => {this.$router.push('/login')})
     }
   }
 }
@@ -33,5 +40,9 @@ export default {
   display: flex;
   align-items:center;
   padding: 0 15px;
+}
+.light button {
+  background: lightgray;
+  margin: 0 5px;
 }
 </style>

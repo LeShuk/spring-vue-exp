@@ -29,6 +29,8 @@ public class Profile {
     @Column(name = "P_EMAIL", nullable = false, unique = true)
     private String email;
 
+    //todo: пароль не должен передаваться на фронт ни в каком виде;
+    //todo: сделать отдельный контроллер смены пароля;
     @Column(name = "P_PASSWORD", nullable = false)
     private String password;
 

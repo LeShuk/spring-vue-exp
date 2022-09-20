@@ -11,15 +11,12 @@
 </template>
 
 <script>
-import {apiClient, apiUrls} from "@/utils/apiClient";
 import {validEmail} from "@/utils/Validators";
-import {secureState} from "@/utils/secureState";
 
 export default {
   name: "LoginPage",
   data() {
     return {
-      secureState,
       error: '',
       creds: {
         username: '',
@@ -29,41 +26,37 @@ export default {
   },
   methods: {
     login() {
-      console.log('Yeap!')
-      if ((!validEmail(this.creds.username)) || (this.creds.password.isEmpty)) {
-         this.error = 'некорректный e-mail или пустой пароль';
+      if ((validEmail(this.creds.username)) || (!this.creds.password.isEmpty)) {
+        this.$store.dispatch('secureState/login', this.creds)
+          .then(() => {this.$router.push('/')})
+          .catch(error => console.log(error));
       } else {
-        this.fetchAuth()
+        this.error = 'некорректный e-mail или пустой пароль';
       }
     },
-    fetchAuth() {
-      console.log('Hip-hip!')
-      apiClient
-          .post(apiUrls['auth'], this.creds)
-          .then((response) => {
-            secureState.login(response.headers['authorization'], this.creds.username);
-            this.$router.push('/');
-          })
-          .catch((error) => {
-            if (error.response.status === 401){
-              this.error = error.response.data;
-            } else {
-              this.error = 'неизвестная ошибка';
-              console.log(error)
-            }
-          })
-    }
+
   },
 }
 </script>
 
 <style scoped>
   .login {
-    width: 600px;
+    width: 400px;
     margin: auto;
 
   }
  .error {
    color: red;
  }
+  input {
+    font: inherit;
+    padding: 5px;
+    margin-top: 15px;
+    outline: none;
+    border-color: teal;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
 </style>

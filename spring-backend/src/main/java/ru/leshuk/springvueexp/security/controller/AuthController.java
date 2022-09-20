@@ -27,10 +27,11 @@ public class AuthController {
 
         Authentication auth = authenticationManager.authenticate(creds);
 
-        String jwts = jwtService.getToken(auth.getName());
+        String jwt = jwtService.getToken(auth.getName());
 
+        //todo: заголовок приходит с маленькой буквы!!! Почему?
         return ResponseEntity.ok()
-                .header(HttpHeaders.AUTHORIZATION, JwtService.PREFIX + jwts)
+                .header(HttpHeaders.AUTHORIZATION, JwtService.PREFIX + jwt)
                 .header(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS, "Authorization")
                 .build();
     }
